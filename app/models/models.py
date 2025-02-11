@@ -26,7 +26,7 @@ class Task:
         self.status = status
 
     def show_task(self):
-        return f'{self.title} - {self.desc} - {self.status.name}'
+        return f"{self.title} - {self.desc} - {self.status.name}"
 
 
 class ToDoList:
@@ -51,7 +51,7 @@ class ToDoList:
     def show_task(self, index: int):
         if 0 <= index < len(self.task_list):
             return self.task_list[index].show_task()
-        return 'Task is not found'
+        return "Task is not found"
 
     def clear_todo_list(self):
         self.task_list.clear()
