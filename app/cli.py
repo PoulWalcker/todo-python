@@ -1,4 +1,4 @@
-from models.models import Status, Task, ToDoList
+from models.models import Status, ToDoList
 import argparse
 
 todo_list = ToDoList()
@@ -12,18 +12,20 @@ def add_task(args):
 
 def show_tasks(args):
     """Show list of tasks from todo_list"""
-    todo_list.show_all_tasks()
+    data = todo_list.show_all_tasks()
+    print(data)
 
 
 def show_task(args):
     """Show from todo_list"""
-    todo_list.show_task(args.id)
+    data = todo_list.show_task(args.id)
+    print(data)
 
 
 def complete_task(args):
     """Complete task from todo_list"""
     if 0 <= args.id < len(todo_list.task_list):
-        todo_list.task_list[args.id].change_task_status(Status.Done)
+        todo_list.complete_task(args.id)
         print(f"Task #{args.id} marked as done.")
     else:
         print("Invalid task id.")
